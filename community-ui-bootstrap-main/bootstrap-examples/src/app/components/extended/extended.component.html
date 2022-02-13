@@ -1,0 +1,11 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div [ngClass]="splitScreen===false ? 'col-12' : 'col-6 d-none d-lg-block'">
+            <app-extended-left [splitScreen]="splitScreen" (viewMOTs)="viewMOTsClicked()"></app-extended-left>
+        </div>
+        <div [ngClass]="splitScreen===false ? 'd-none' : 'col-12 col-lg-6'">
+            <app-extended-right [splitScreen]="splitScreen" (closeClicked)="closeButtonClicked($event)"></app-extended-right>
+        </div>
+    </div>
+</div>

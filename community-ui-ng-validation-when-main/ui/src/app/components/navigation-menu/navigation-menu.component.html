@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-md ustify-content-center navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">VALDEMO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation-bar"
+        aria-controls="navigation-bar" aria-expanded="false" aria-label="Toggle navigation" (click)="onShowCollapsed()">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navigation-bar" [ngClass]="showCollapsed === true ? 'show' : ''">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown" dropdown>
+                <a class="nav-link" dropdownToggle aria-controls="validation-dropdown" href="#" (click)="false">Validation Examples <fa-icon class="card-icon" [icon]="faChevronDown"></fa-icon> </a>
+                <ul id="validation-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labbelledby="basic-link"> 
+                    <a class="dropdown-item" routerLink="/test-definitions/basic-validation">Basic Validation</a>
+                    <a class="dropdown-item" routerLink="/test-definitions/module-validation">Module Validation</a>
+                    <a class="dropdown-item" routerLink="/test-definitions/async-validation">Async Validation</a>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

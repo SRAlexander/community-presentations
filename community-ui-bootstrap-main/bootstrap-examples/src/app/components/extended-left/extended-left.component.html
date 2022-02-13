@@ -1,0 +1,68 @@
+<div class="page-spacer"></div>
+
+<div class="row">
+    <div class="col-12">
+        <h3><span>Extended View</span></h3>
+    </div>
+</div>
+
+<div class="page-spacer"></div>
+
+<div class="row">
+    <div class="card-container col-12">
+        <div class="row" *ngFor="let record of data">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-7 col-sm-9">
+                                {{record.model}} - {{record.year}}
+                            </div>
+                            <div class="col-5 col-sm-3">
+                                <button class="btn btn-primary btn-sm btn-block" (click)="motClicked()">MOTs</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div [ngClass]="splitScreen === false ? 'col-12 col-lg-6' : 'col-12'">
+                                <div class="row field-row">
+                                    <label class="col-12 col-sm-6"><b>Owner: </b></label>
+                                    <span class="col-12 col-sm-6">{{record.owner}}</span>
+                                </div>
+                            </div>
+                            <div [ngClass]="splitScreen === false ? 'col-12 col-lg-6' : 'col-12'">
+                                <div class="row field-row">
+                                    <label class="col-12 col-sm-6"><b>Email: </b></label>
+                                    <span class="col-12 col-sm-6">{{record.email}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div [ngClass]="splitScreen === false ? 'col-12 col-lg-6' : 'col-12'">
+                                <div class="row field-row">
+                                    <label class="col-12 col-sm-6"><b>Gender: </b></label>
+                                    <span class="col-12 col-sm-6">{{record.gender}}</span>
+                                </div>
+                            </div>
+                            <div [ngClass]="splitScreen === false ? 'col-12 col-lg-6' : 'col-12'">
+                                <div class="row field-row">
+                                    <label class="col-12 col-sm-6"><b>Company: </b></label>
+                                    <span class="col-12 col-sm-6">{{record.company}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row field-row">
+                                    <label class="col-12 col-lg-3"><b>Address: </b></label>
+                                    <span class="col-12 col-lg-9">{{record.address}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

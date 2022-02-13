@@ -1,0 +1,46 @@
+<div class="page-spacer"></div>
+
+<div class="row">
+    <div class="col-9">
+        <h3><span>Extended View MOTS</span></h3>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-primary btn-block btn-sm" (click)="closeButtonClicked()">Close</button>
+    </div>
+</div>
+
+<div class="page-spacer"></div>
+
+<div class="row">
+    <div *ngIf="data !== null "class="card-container col-12">
+        <div class="row" *ngFor="let record of data">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-12">
+                                {{record.date}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div [ngClass]="splitScreen === false ? 'col-12 col-lg-6' : 'col-12'">
+                                <div class="row">
+                                    <label class="col-12 col-sm-6"><b>Outcome: </b></label>
+                                    <span class="col-12 col-sm-6">{{record.outcome}}</span>
+                                </div>
+                            </div>
+                            <div [ngClass]="splitScreen === false ? 'col-12 col-lg-6' : 'col-12'">
+                                <div class="row">
+                                    <label class="col-12 col-sm-6"><b>Location: </b></label>
+                                    <span class="col-12 col-sm-6">{{record.location}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

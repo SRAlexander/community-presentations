@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-12">
+        <h3 id="page-title">Validation Investigation</h3>
+    </div>
+</div>
+
+<div class="page-spacer"></div>
+
+<div class="row">
+    <div class="col-12">
+        <form [formGroup]="demoForm">
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="test-definition-name">Test Definition Name: </label>
+                    <input id="test-definition-name" name="name" type="text" class="form-control" formControlName="name">
+                    <div *ngIf="getControls().name.touched && getControls().name.invalid" class="text-danger">
+                        <div id="test-definition-name-required-message" *ngIf="getControls().name.errors?.required">Test Definition Name is
+                            required.</div>
+                        <div id="test-definition-name-min-length-message" *ngIf="getControls().name.errors?.minLengthError">
+                            Length must be greater than 3 characters</div>
+                        <div id="test-definition-name-unique-name-message" *ngIf="getControls().name.errors?.notUnique">
+                            Name is already in use</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="test-definition-description">Test Definition Description: </label>
+                    <input id="test-definition-description" type="text" class="form-control" formControlName="description">
+                    <div *ngIf="getControls().description.touched && getControls().description.invalid" class="text-danger">
+                        <div id="test-definition-description-required-message" *ngIf="getControls().description.errors?.required">
+                            Test Definition Description is required.</div>
+                        <div id="test-definition-description-min-length-message" *ngIf="getControls().description.errors?.minLengthError">
+                                Length must be greater than 3 characters</div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-spacer"></div>
+            <div class="row">
+                <div class="col-12">
+                    <button id="submit-button" (click)="submit()" class="btn btn-primary btn-block">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

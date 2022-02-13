@@ -1,0 +1,38 @@
+
+name: Terraform Plan - Development
+env:
+  ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
+  ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+  ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+  ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
+  ARM_ACCESS_KEY: ${{secrets.TF_ARM_ACCESS_KEY}}
+on:
+  pull_request:
+      branches: [ main ]
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run: 
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.6
+
+      - name: Terraform Format
+        working-directory: ./dev
+        run: terraform fmt 
+      
+      - name: Terraform Init
+        working-directory: ./dev
+        run: terraform init
+
+      - name: Terraform Plan  
+        working-directory: ./dev 
+        run: terraform plan -lock=false -out "plan"

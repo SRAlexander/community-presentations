@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+.page-spacer {
+    height:32px;
+}
+
+.card-container {
+    overflow-y: scroll;
+    max-height: 80vh;
+}
+
+.card {
+    margin-top:4px;
+    margin-bottom:4px;
+
+}
+
+.card-header {
+    /* background-color: black;
+    color: white; */
+    background-color: lightgrey;
+}
+
+@media (max-width: 575.98px) {
+    .field-row {
+        padding-bottom:12px
+    }
+}
